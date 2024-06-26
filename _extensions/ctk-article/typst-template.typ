@@ -53,9 +53,9 @@
         if pg == 1 {
           return
         } else if (calc.odd(pg)) [
-            #align(right)[#runningtitle]
+            #align(right, runningtitle)
           ] else [
-            #align(left)[#runningauth]
+            #align(left, runningauth)
           ]
       }
     )
