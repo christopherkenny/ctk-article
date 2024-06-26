@@ -23,7 +23,7 @@ To check that it is installed, run:
 quarto typst fonts
 ```
 
-If no font by the names "Crimson Text", "Crimson", or "Crimson Pro" is found, the template falls back to Linux Libertine.
+If no font by the names "Crimson Text" or "Crimson" is found, the template falls back to Linux Libertine.
 
 This font is chosen to look like [Cory McCartan's cmc-article](https://github.com/corymccartan/cmc-article) which uses Cochineal.
 

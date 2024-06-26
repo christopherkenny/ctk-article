@@ -11,6 +11,5 @@ contributes:
       mainfont:
         - "Crimson"
         - "Crimson Text"
-        - "Crimson Pro"
       date-format: long
 
