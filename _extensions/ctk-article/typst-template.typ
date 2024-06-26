@@ -13,6 +13,7 @@
 
 #let ctk-article(
   title: none,
+  runningtitle: none,
   authors: none,
   date: none,
   abstract: none,
@@ -31,10 +32,33 @@
   toc_indent: 1.5em,
   doc,
 ) = {
+
+  let runningauth = if authors == none {
+    none
+  } else if authors.len() == 2 {
+    authors.map(author => author.last).join(" and ")
+  } else if authors.len() < 5 {
+    authors.map(author => author.last).join(", ", last: ", and ")
+  } else {
+    authors.first().last + " et al."
+  }
+
   set page(
     paper: paper,
     margin: margin,
     numbering: "1",
+    header: locate(
+      loc => {
+      let pg = counter(page).at(loc).first()
+        if pg == 1 {
+          return
+        } else if (calc.odd(pg)) [
+            #align(right)[#runningtitle]
+          ] else [
+            #align(left)[#runningauth]
+          ]
+      }
+    )
   )
   set par(
     justify: true,

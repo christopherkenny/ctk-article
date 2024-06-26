@@ -1,5 +1,5 @@
 ---
-title: Untitled
+title: "`ctk-article` Example"
 format:
   ctk-article-typst:
     keep-typ: false
@@ -18,7 +18,7 @@ author:
     affiliations:
       - country: USA
     email: email2@email.com
-  - name: Author Three
+  - name: Author Four
     affiliations:
       - country: New Row
     email: email3@email.com

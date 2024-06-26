@@ -16,11 +16,19 @@
 $if(title)$
   title: [$title$],
 $endif$
+$if(running-title)$
+  runningtitle: [$running-title$],
+$else$
+$if(title)$
+  runningtitle: [$title$],
+$endif$
+$endif$
 $if(by-author)$
   authors: (
 $for(by-author)$
 $if(it.name.literal)$
     ( name: [$it.name.literal$],
+      last: [$it.name.family$],
     $for(it.affiliations/first)$
     department: $if(it.department)$[$it.department$]$else$none$endif$,
     university: $if(it.name)$[$it.name$]$else$none$endif$,
