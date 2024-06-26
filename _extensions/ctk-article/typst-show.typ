@@ -26,7 +26,10 @@ $if(it.name.literal)$
     university: $if(it.name)$[$it.name$]$else$none$endif$,
     location: [$if(it.city)$$it.city$$if(it.country)$, $endif$$endif$$if(it.country)$$it.country$$endif$],
     $endfor$
-      email: $if(it.email)$[$it.email$]$else$none$endif$ ),
+    $if(it.email)$
+      email: [$it.email$]
+    $endif$ 
+      ),
 $endif$
 $endfor$
     ),

@@ -2,7 +2,7 @@
 title: Untitled
 format:
   ctk-article-typst:
-    keep-typ: true
+    keep-typ: false
 author:
   - name: Author One
     affiliations:
@@ -43,7 +43,7 @@ We can cite like normal [@king1994designing].
 
 ## More Information
 
-You can learn more about creating custom Typst templates here: 
+You can learn more about creating custom Typst templates here:
 
 <https://quarto.org/docs/prerelease/1.4/typst.html#custom-formats>
 
@@ -61,17 +61,16 @@ Donec nibh erat, ornare eleifend dictum vel, fringilla id elit. Mauris id eros a
 
 # A List
 
-- Item 1
-- Item 2
-- Item 3
-  - a
-  
+-   Item 1
+-   Item 2
+-   Item 3
+    -   a
+
 # Including code
 
 ```{r}
 plot(iris$Sepal.Length, iris$Sepal.Width)
 ```
-
 
 # Math works
 
@@ -84,5 +83,3 @@ Even better, you can use a Typst block to use the Typst syntax, allowing you to 
 ```{=typst}
 $ A = pi r^2 $
 ```
-
-

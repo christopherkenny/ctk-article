@@ -59,14 +59,22 @@
       columns: (1fr,) * ncols,
       row-gutter: 1.5em,
       ..authors.map(author =>
-          align(center)[
-            #author.name \ 
-            #if author.department != none [#author.department #linebreak()]
-            #if author.university != none [#author.university #linebreak()]
-            #if author.location != [] [#author.location #linebreak()]
-            #author.email
-          ]
-      )
+          align(center, {
+            text(weight: "bold", author.name)  
+            if author.department != none [
+            \ #author.department
+            ]
+            if author.university != none [
+            \ #author.university
+            ]
+            if author.location != [] [
+            \ #author.location
+            ]
+            if "email" in author [
+            \ #author.email
+            ]
+      })
+    )
     )
   }
 
