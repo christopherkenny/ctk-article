@@ -11,13 +11,14 @@
 //   - https://github.com/typst/templates
 
 
-#let article(
+#let ctk-article(
   title: none,
   authors: none,
   date: none,
   abstract: none,
+  keywords: none,
   cols: 1,
-  margin: (x: 1.25in, y: 1.25in),
+  margin: (x: 1in, y: 1in),
   paper: "us-letter",
   lang: "en",
   region: "US",
@@ -35,7 +36,10 @@
     margin: margin,
     numbering: "1",
   )
-  set par(justify: true)
+  set par(
+    justify: true,
+    first-line-indent: 1em
+  )
   set text(lang: lang,
            region: region,
            font: font,
@@ -56,8 +60,10 @@
       row-gutter: 1.5em,
       ..authors.map(author =>
           align(center)[
-            #author.name \
-            #author.affiliation \
+            #author.name \ 
+            #if author.department != none [#author.department #linebreak()]
+            #if author.university != none [#author.university #linebreak()]
+            #if author.location != [] [#author.location #linebreak()]
             #author.email
           ]
       )
@@ -71,9 +77,16 @@
   }
 
   if abstract != none {
-    block(inset: 2em)[
-    #text(weight: "semibold")[$labels.abstract$] #h(1em) #abstract
-    ]
+    align(center)[#block(width: 80%)[
+      *Abstract* \
+      #align(left)[#abstract]
+    ]]
+  }
+
+  if keywords != none {
+    align(left)[#block(inset: 1em)[
+      *Keywords*: #keywords.join(", ", last: ", and ")
+    ]]
   }
 
   if toc {

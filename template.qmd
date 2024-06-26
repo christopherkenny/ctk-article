@@ -1,12 +1,45 @@
 ---
 title: Untitled
 format:
-  ctk-article-typst: default
+  ctk-article-typst:
+    keep-typ: true
+author:
+  - name: Author One
+    affiliations:
+      - name: An Organization
+        department: Government
+      - country: USA
+    email: email@email.com
+  - name: Author Two
+    affiliations:
+      - Affiliation B
+      - country: USA
+  - name: Author Three
+    affiliations:
+      - country: USA
+    email: email2@email.com
+  - name: Author Three
+    affiliations:
+      - country: New Row
+    email: email3@email.com
+date: today
+abstract: |
+  Abstracts can be included in documents in the YAML. 
+  The `ctk-article` format is a multipurpose article format that uses `Typst` in 
+  the backend.
+keywords:
+  - paper
+  - abstract
+  - typst
+bibliography: bibliography.bib
+bibliographystyle: chicago-author-date
 ---
 
 ## Introduction
 
 *TODO* Create an example file that demonstrates the formatting and features of your format.
+
+We can cite like normal [@king1994designing].
 
 ## More Information
 
@@ -14,5 +47,42 @@ You can learn more about creating custom Typst templates here:
 
 <https://quarto.org/docs/prerelease/1.4/typst.html#custom-formats>
 
+# Lorem Ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem est, imperdiet ac commodo et, tempus eu nulla. Nullam dapibus lacinia nunc. Morbi in nisi in neque feugiat faucibus a ut quam. Suspendisse hendrerit et purus non vulputate. Donec tristique non odio ut dapibus. Aliquam vehicula ullamcorper nisl. Etiam eget consequat quam. Nulla purus elit, dictum ut nibh ac, consectetur posuere purus. Pellentesque gravida velit ut enim facilisis, vitae tempus odio cursus.
+
+Ut quis justo eget magna luctus dictum. Aliquam tellus purus, bibendum quis orci et, fermentum facilisis velit. Sed tristique scelerisque nibh quis tempor. Fusce quis purus rhoncus, facilisis massa eu, commodo eros. Sed facilisis lobortis lorem, eget tincidunt lacus scelerisque in. Integer placerat sit amet mauris et tempus. Curabitur rhoncus arcu ornare sem mattis commodo vitae nec ligula. Duis lacinia purus tellus, id dapibus ante blandit non. Phasellus vel hendrerit nulla. Suspendisse commodo, tellus nec cursus sodales, quam risus consectetur est, sit amet facilisis augue ligula id metus. Sed sed dolor dictum, faucibus dolor at, varius felis. Vivamus ligula arcu, finibus vitae bibendum vitae, efficitur sit amet ligula. Cras eu vehicula mauris.
+
+Vestibulum porta enim vitae justo auctor, id semper sapien finibus. Cras sodales quam nunc, in semper tellus sodales eu. Aenean ut fringilla diam. Maecenas in rutrum neque. Vivamus rhoncus, libero interdum fermentum tincidunt, lacus ipsum ultrices neque, ac varius lorem leo quis tortor. In mi purus, dapibus a arcu a, semper posuere orci. Nulla a dolor non augue semper lobortis. In hac habitasse platea dictumst. Maecenas imperdiet metus finibus semper rhoncus.
+
+Quisque a interdum ligula. Aliquam sit amet metus eu tellus viverra sodales. Donec vitae ipsum urna. Morbi viverra aliquet tempor. Curabitur cursus at metus ornare placerat. Aliquam dapibus, est in porta condimentum, risus neque porta lorem, vitae maximus lacus nibh pharetra velit. Aenean ac posuere justo, luctus porttitor magna.
+
+Donec nibh erat, ornare eleifend dictum vel, fringilla id elit. Mauris id eros a justo fringilla placerat. Nunc ligula sapien, sollicitudin ac tortor in, accumsan luctus quam. Nunc porttitor, sapien eu malesuada vehicula, risus libero convallis nunc, vel dapibus risus arcu eget ipsum. Nullam ornare enim et magna tempus, at rhoncus metus porta. Praesent tincidunt nec ante a vehicula. Nulla facilisi. Nulla eget aliquam sapien, eu condimentum augue.
+
+# A List
+
+- Item 1
+- Item 2
+- Item 3
+  - a
+  
+# Including code
+
+```{r}
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+
+# Math works
+
+You can use LaTeX math in Typst-powered Quarto documents:
+
+$$ 3 + 3 \cdot \epsilon $$
+
+Even better, you can use a Typst block to use the Typst syntax, allowing you to use both in one document:
+
+```{=typst}
+$ A = pi r^2 $
+```
 
 

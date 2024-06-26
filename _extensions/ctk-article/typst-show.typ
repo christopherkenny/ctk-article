@@ -12,7 +12,7 @@
 //   - https://typst.app/docs/tutorial/making-a-template/
 //   - https://github.com/typst/templates
 
-#show: doc => article(
+#show: doc => ctk-article(
 $if(title)$
   title: [$title$],
 $endif$
@@ -21,8 +21,12 @@ $if(by-author)$
 $for(by-author)$
 $if(it.name.literal)$
     ( name: [$it.name.literal$],
-      affiliation: [$for(it.affiliations)$$it.name$$sep$, $endfor$],
-      email: [$it.email$] ),
+    $for(it.affiliations/first)$
+    department: $if(it.department)$[$it.department$]$else$none$endif$,
+    university: $if(it.name)$[$it.name$]$else$none$endif$,
+    location: [$if(it.city)$$it.city$$if(it.country)$, $endif$$endif$$if(it.country)$$it.country$$endif$],
+    $endfor$
+      email: $if(it.email)$[$it.email$]$else$none$endif$ ),
 $endif$
 $endfor$
     ),
@@ -39,6 +43,9 @@ $endif$
 $if(abstract)$
   abstract: [$abstract$],
 $endif$
+$if(keywords)$
+  keywords: ($for(keywords)$"$keywords$",$endfor$),
+$endif$
 $if(margin)$
   margin: ($for(margin/pairs)$$margin.key$: $margin.value$,$endfor$),
 $endif$
@@ -46,7 +53,7 @@ $if(papersize)$
   paper: "$papersize$",
 $endif$
 $if(mainfont)$
-  font: ("$mainfont$",),
+  font: ($for(mainfont)$"$mainfont$",$endfor$),
 $endif$
 $if(fontsize)$
   fontsize: $fontsize$,
