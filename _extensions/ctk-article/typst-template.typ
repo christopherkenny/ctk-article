@@ -95,7 +95,7 @@
             \ #author.location
             ]
             if "email" in author [
-            \ #author.email
+            \ #link("mailto:" + author.email.replace("\\", ""))
             ]
       })
     )
