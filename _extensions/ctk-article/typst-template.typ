@@ -1,15 +1,6 @@
 
-// This is an example typst template (based on the default template that ships
-// with Quarto). It defines a typst function named 'article' which provides
-// various customization options. This function is called from the 
-// 'typst-show.typ' file (which maps Pandoc metadata function arguments)
-//
-// If you are creating or packaging a custom typst template you will likely
-// want to replace this file and 'typst-show.typ' entirely. You can find 
-// documentation on creating typst templates and some examples here: 
-//   - https://typst.app/docs/tutorial/making-a-template/
-//   - https://github.com/typst/templates
-
+// ctk-article definition starts here
+// everything above is inserted by Quarto
 
 #let ctk-article(
   title: none,

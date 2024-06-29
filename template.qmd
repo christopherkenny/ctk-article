@@ -69,6 +69,7 @@ Donec nibh erat, ornare eleifend dictum vel, fringilla id elit. Mauris id eros a
 # Including code
 
 ```{r}
+#| label: fig-sepal
 plot(iris$Sepal.Length, iris$Sepal.Width)
 ```
 
@@ -82,4 +83,17 @@ Even better, you can use a Typst block to use the Typst syntax, allowing you to 
 
 ```{=typst}
 $ A = pi r^2 $
+```
+
+# Appendix formatting {.appendix}
+
+We can put more stuff here.
+Note that the lettering and numbering gets updated.
+Below we've added a section with a figure, @fig-petal.
+
+## Appendix subsection
+
+```{r}
+#| label: fig-petal
+plot(iris$Petal.Length, iris$Petal.Width)
 ```
