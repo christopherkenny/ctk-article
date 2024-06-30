@@ -24,8 +24,8 @@ author:
     email: email3@email.com
 date: today
 abstract: |
-  Abstracts can be included in documents in the YAML. 
-  The `ctk-article` format is a multipurpose article format that uses `Typst` in 
+  Abstracts can be included in documents in the YAML.
+  The `ctk-article` format is a multipurpose article format that uses `Typst` in
   the backend.
 keywords:
   - paper
@@ -59,12 +59,25 @@ Quisque a interdum ligula. Aliquam sit amet metus eu tellus viverra sodales. Don
 
 Donec nibh erat, ornare eleifend dictum vel, fringilla id elit. Mauris id eros a justo fringilla placerat. Nunc ligula sapien, sollicitudin ac tortor in, accumsan luctus quam. Nunc porttitor, sapien eu malesuada vehicula, risus libero convallis nunc, vel dapibus risus arcu eget ipsum. Nullam ornare enim et magna tempus, at rhoncus metus porta. Praesent tincidunt nec ante a vehicula. Nulla facilisi. Nulla eget aliquam sapien, eu condimentum augue.
 
-# A List
+# Including Lists
 
 -   Item 1
 -   Item 2
 -   Item 3
     -   a
+
+# Including Tables
+
+| month      | count |
+| ---------- | ----- |
+| 2024-01-01 | 11159 |
+| 2024-02-01 |  6460 |
+| 2024-03-01 |  8850 |
+| 2024-04-01 |  8471 |
+| 2024-05-01 |  8681 |
+| 2024-06-01 |  7710 |
+
+: Some monthly numbers {#tbl-simple}
 
 # Including code
 
@@ -97,3 +110,21 @@ Below we've added a section with a figure, @fig-petal.
 #| label: fig-petal
 plot(iris$Petal.Length, iris$Petal.Width)
 ```
+
+### Subsubsection
+
+With a surprise sub-sub-section.
+
+| rank     | package  |   count  |
+| -------- | -------- | -------- |
+|     1    |    rlang |  1672290 |
+|     2    |  ggplot2 |  1624767 |
+|     3    |      cli |  1389491 |
+|     4    |     Rcpp |  1386753 |
+|     5    |    dplyr |  1361177 |
+
+: Top R package downloads in June 2024 {#tbl-rpkgs}
+
+# Another appendix section
+
+This comes last.

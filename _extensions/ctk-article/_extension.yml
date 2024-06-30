@@ -8,6 +8,8 @@ contributes:
       template-partials:
         - typst-template.typ
         - typst-show.typ
+      filters:
+        - insert-show-appendix.lua
       mainfont:
         - "Crimson"
         - "Crimson Text"

@@ -75,7 +75,7 @@
       row-gutter: 1.5em,
       ..authors.map(author =>
           align(center, {
-            text(weight: "bold", author.name)  
+            text(weight: "bold", author.name)
             if author.department != none [
             \ #author.department
             ]
@@ -132,14 +132,25 @@
   } else {
     columns(cols, doc)
   }
-  
-  let appendix(body) = {
-    set heading(numbering: "A", supplement: [Appendix])
-    counter(heading).update(0)
-    body
-  }
 }
 
+#let appendix(body) = {
+  set heading(
+    numbering: "A.1",
+    supplement: [Appendix]
+    )
+  set figure(
+    numbering: (..nums) => {
+      "A" + numbering("1", ..nums.pos())
+    },
+    supplement: [Appendix Figure]
+  )
+  counter(heading).update(0)
+  counter(figure.where(kind: "quarto-float-fig")).update(0)
+  counter(figure.where(kind: "quarto-float-tbl")).update(0)
+
+  body
+}
 #set table(
   inset: 6pt,
   stroke: none
