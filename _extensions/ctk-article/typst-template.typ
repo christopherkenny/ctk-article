@@ -55,26 +55,29 @@
     justify: true,
     first-line-indent: 1em
   )
-  set text(lang: lang,
-           region: region,
-           font: font,
-           size: fontsize)
+  set text(
+    lang: lang,
+    region: region,
+    font: font,
+    size: fontsize
+  )
   set heading(numbering: sectionnumbering)
 
   if title != none {
     align(center)[#block(inset: 2em)[
-      #text(weight: "bold", size: 1.5em)[#title]
+      #text(weight: "bold", size: 30pt)[#title]
     ]]
   }
 
-  if authors != none {
-    let count = authors.len()
-    let ncols = calc.min(count, 3)
+// author spacing based on Quarto ieee licenced CC0 1.0 Universal
+// https://github.com/quarto-ext/typst-templates/blob/main/ieee/_extensions/ieee/typst-template.typ
+  for i in range(calc.ceil(authors.len() / 3)) {
+    let end = calc.min((i + 1) * 3, authors.len())
+    let slice = authors.slice(i * 3, end)
     grid(
-      columns: (1fr,) * ncols,
-      row-gutter: 1.5em,
-      ..authors.map(author =>
-          align(center, {
+      columns: slice.len() * (1fr,),
+      gutter: 12pt,
+      ..slice.map(author => align(center, {
             text(weight: "bold", author.name)
             if author.department != none [
             \ #author.department
@@ -88,9 +91,10 @@
             if "email" in author [
             \ #link("mailto:" + author.email.replace("\\", ""))
             ]
-      })
+      }))
     )
-    )
+
+    v(20pt, weak: true)
   }
 
   if date != none {
