@@ -21,6 +21,7 @@
   toc_title: none,
   toc_depth: none,
   toc_indent: 1.5em,
+  linestretch: 1,
   doc,
 ) = {
 
@@ -53,7 +54,8 @@
   )
   set par(
     justify: true,
-    first-line-indent: 1em
+    first-line-indent: 1em,
+    leading: linestretch * 0.65em
   )
   set text(
     lang: lang,

@@ -35,13 +35,13 @@ bibliography: bibliography.bib
 bibliographystyle: chicago-author-date
 ---
 
-## Introduction
+# Introduction
 
 *TODO* Create an example file that demonstrates the formatting and features of your format.
 
 We can cite like normal [@king1994designing].
 
-## More Information
+# More Information
 
 You can learn more about creating custom Typst templates here:
 
@@ -97,6 +97,14 @@ Even better, you can use a Typst block to use the Typst syntax, allowing you to 
 ```{=typst}
 $ A = pi r^2 $
 ```
+
+### References
+
+Reference are automatically placed at the end of the document.
+The magic refs div does not currently working in typst, see [this issue](https://github.com/quarto-dev/quarto-cli/issues/8710).
+
+::: {#refs}
+:::
 
 # Appendix formatting {.appendix}
 

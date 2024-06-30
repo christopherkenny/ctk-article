@@ -14,4 +14,5 @@ contributes:
         - "Crimson"
         - "Crimson Text"
       date-format: long
-
+      linestretch: 1.25
+      section-numbering: "1.1"
