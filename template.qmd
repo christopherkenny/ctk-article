@@ -101,7 +101,8 @@ $ A = pi r^2 $
 ### References
 
 Reference are automatically placed at the end of the document.
-The magic refs div does not currently working in typst, see [this issue](https://github.com/quarto-dev/quarto-cli/issues/8710).
+The magic refs div does not current working in typst when `citeproc: false`, see [this issue](https://github.com/quarto-dev/quarto-cli/issues/8710).
+To move the refs, set `citeproc: true` in the YAML.
 
 ::: {#refs}
 :::
