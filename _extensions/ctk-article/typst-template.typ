@@ -50,7 +50,7 @@
   set page(
     paper: paper,
     margin: margin,
-    numbering: sectionnumbering,
+    numbering: "1",
     header: locate(
       loc => {
       let pg = counter(page).at(loc).first()
