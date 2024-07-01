@@ -57,9 +57,7 @@ $endif$
 $if(fontsize)$
   fontsize: $fontsize$,
 $endif$
-$if(section-numbering)$
-  sectionnumbering: "$section-numbering$",
-$endif$
+sectionnumbering: $if(section-numbering)$"$section-numbering$"$else$none$endif$,
 $if(toc)$
   toc: $toc$,
 $endif$

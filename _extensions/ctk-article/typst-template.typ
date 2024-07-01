@@ -28,7 +28,7 @@
   region: "US",
   font: (),
   fontsize: 11pt,
-  sectionnumbering: none,
+  sectionnumbering: "1.1",
   toc: false,
   toc_title: none,
   toc_depth: none,
@@ -50,7 +50,7 @@
   set page(
     paper: paper,
     margin: margin,
-    numbering: "1",
+    numbering: sectionnumbering,
     header: locate(
       loc => {
       let pg = counter(page).at(loc).first()
