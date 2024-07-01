@@ -1,3 +1,15 @@
+// better way to avoid escape characters, rather than doing a regex for \\@
+#let to-string(content) = {
+  if content.has("text") {
+    content.text
+  } else if content.has("children") {
+    content.children.map(to-string).join("")
+  } else if content.has("body") {
+    to-string(content.body)
+  } else if content == [ ] {
+    " "
+  }
+}
 
 // ctk-article definition starts here
 // everything above is inserted by Quarto
@@ -91,7 +103,7 @@
             \ #author.location
             ]
             if "email" in author [
-            \ #link("mailto:" + author.email.replace("\\", ""))
+            \ #link("mailto:" + to-string(author.email))
             ]
       }))
     )
