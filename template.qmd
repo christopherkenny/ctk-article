@@ -3,7 +3,7 @@ title: "`ctk-article` Example"
 subtitle: "With Typst"
 format:
   ctk-article-typst:
-    keep-typ: true
+    keep-typ: false
 author:
   - name: Author One
     affiliations:
