@@ -16,10 +16,12 @@
 
 #let ctk-article(
   title: none,
+  subtitle: none,
   runningtitle: none,
   authors: none,
   date: none,
   abstract: none,
+  thanks: none,
   keywords: none,
   cols: 1,
   margin: (x: 1in, y: 1in),
@@ -28,6 +30,8 @@
   region: "US",
   font: (),
   fontsize: 11pt,
+  mathfont: "New Computer Modern Math",
+  codefont: "DejaVu Sans Mono",
   sectionnumbering: "1.1",
   toc: false,
   toc_title: none,
@@ -69,18 +73,56 @@
     first-line-indent: 1em,
     leading: linestretch * 0.65em
   )
+  // Font stuff
   set text(
     lang: lang,
     region: region,
     font: font,
     size: fontsize
   )
+  show math.equation: set text(font: mathfont)
+  show raw: set text(font: codefont)
+
   set heading(numbering: sectionnumbering)
 
+  // metadata
+  set document(
+    title: title,
+    author: to-string(runningauth),
+    date: auto,
+    keywords: keywords.join(", ")
+  )
+
+  // start article content
   if title != none {
-    align(center)[#block(inset: 2em)[
-      #text(weight: "bold", size: 30pt)[#title]
-    ]]
+    align(center)[
+      #block(inset: 2em)[
+        #text(weight: "bold", size: 30pt)[
+          #title #if thanks != none {
+            footnote(thanks, numbering: "*")
+            counter(footnote).update(n => n - 1)
+          }
+        ]
+        #if subtitle != none {
+          linebreak()
+          text(subtitle, size: 24pt, weight: "semibold")
+        }
+      ]
+    ]
+  }
+
+  show figure.where(kind: "quarto-float-fig"): set figure.caption(position: top)
+
+  show link: this => {
+    if type(this.dest) != label {
+      text(this, fill: rgb("#800000"))
+    } else {
+      text(this, fill: rgb("#0000CC"))
+    }
+  }
+
+  show ref: this => {
+    text(this, fill: rgb("#640872"))
   }
 
 // author spacing based on Quarto ieee licenced CC0 1.0 Universal

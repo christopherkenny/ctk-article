@@ -1,5 +1,6 @@
 ---
 title: "`ctk-article` Example"
+subtitle: "With Typst"
 format:
   ctk-article-typst:
     keep-typ: false
@@ -31,6 +32,7 @@ keywords:
   - paper
   - abstract
   - typst
+thanks: "Thanks to you for downloading this."
 bibliography: bibliography.bib
 bibliographystyle: chicago-author-date
 ---
@@ -40,8 +42,9 @@ bibliographystyle: chicago-author-date
 *TODO* Create an example file that demonstrates the formatting and features of your format.
 
 We can cite like normal [@king1994designing].
+And we can cross reference @sec-more.
 
-# More Information
+# More Information {#sec-more}
 
 You can learn more about creating custom Typst templates here:
 
@@ -145,5 +148,17 @@ Why use Typst?
   ..range(16)
     .map(i => rotate(24deg * i)[#emoji.face.cowboy])
 )
+
+#align(right)[#scale(x: -100%)[
+
+  #let riddle = "Can you make a cowboy do a flip this easily in LaTeX?"
+
+  #for c in riddle [
+    #if c in ("a", "e", "i", "o", "u") {
+      text(fill: rgb("#FF671F"))[#c]
+    } else {
+      text(fill: rgb("#DA1884"))[#c]
+    }
+  ]
+]]
 ```
-Can you make a cowboy do a flip this easily in LaTeX?

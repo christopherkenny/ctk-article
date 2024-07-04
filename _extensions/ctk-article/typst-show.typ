@@ -4,6 +4,9 @@
 $if(title)$
   title: [$title$],
 $endif$
+$if(subtitle)$
+  subtitle: [$subtitle$],
+$endif$
 $if(running-title)$
   runningtitle: [$running-title$],
 $else$
@@ -42,6 +45,9 @@ $endif$
 $if(abstract)$
   abstract: [$abstract$],
 $endif$
+$if(thanks)$
+  thanks: [$thanks$],
+$endif$
 $if(keywords)$
   keywords: ($for(keywords)$"$keywords$",$endfor$),
 $endif$
@@ -56,6 +62,12 @@ $if(mainfont)$
 $endif$
 $if(fontsize)$
   fontsize: $fontsize$,
+$endif$
+$if(mathfont)$
+  mathfont: ($for(mathfont)$"$mathfont$",$endfor$),
+$endif$
+$if(codefont)$
+  codefont: ($for(codefont)$"$codefont$",$endfor$),
 $endif$
 sectionnumbering: $if(section-numbering)$"$section-numbering$"$else$none$endif$,
 $if(toc)$
