@@ -93,6 +93,19 @@
     keywords: keywords.join(", ")
   )
 
+  // show rules
+  show link: this => {
+    if type(this.dest) != label {
+      text(this, fill: rgb("#800000"))
+    } else {
+      text(this, fill: rgb("#0000CC"))
+    }
+  }
+
+  show ref: this => {
+    text(this, fill: rgb("#640872"))
+  }
+
   // start article content
   if title != none {
     align(center)[
@@ -109,20 +122,6 @@
         }
       ]
     ]
-  }
-
-  show figure.where(kind: "quarto-float-fig"): set figure.caption(position: top)
-
-  show link: this => {
-    if type(this.dest) != label {
-      text(this, fill: rgb("#800000"))
-    } else {
-      text(this, fill: rgb("#0000CC"))
-    }
-  }
-
-  show ref: this => {
-    text(this, fill: rgb("#640872"))
   }
 
 // author spacing based on Quarto ieee licenced CC0 1.0 Universal
