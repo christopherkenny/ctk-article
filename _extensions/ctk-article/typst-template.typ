@@ -94,6 +94,8 @@
   )
 
   // show rules
+  // show figure.where(kind: "quarto-float-fig"): set figure.caption(position: top)
+
   show link: this => {
     if type(this.dest) != label {
       text(this, fill: rgb("#800000"))
