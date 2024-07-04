@@ -18,4 +18,7 @@ contributes:
         - "Fira Code"
       date-format: long
       linestretch: 1.25
+      linkcolor: "#800000"
+      title-page: false
+      blind: false
       section-numbering: "1.1"

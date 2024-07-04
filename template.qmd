@@ -3,7 +3,7 @@ title: "`ctk-article` Example"
 subtitle: "With Typst"
 format:
   ctk-article-typst:
-    keep-typ: false
+    keep-typ: true
 author:
   - name: Author One
     affiliations:
@@ -33,6 +33,8 @@ keywords:
   - abstract
   - typst
 thanks: "Thanks to you for downloading this."
+title-page: true
+blind: false
 bibliography: bibliography.bib
 bibliographystyle: chicago-author-date
 ---

@@ -18,6 +18,7 @@
   title: none,
   subtitle: none,
   runningtitle: none,
+  //runningauth: none,
   authors: none,
   date: none,
   abstract: none,
@@ -38,8 +39,12 @@
   toc_depth: none,
   toc_indent: 1.5em,
   linestretch: 1,
+  linkcolor: "#800000",
+  title-page: false,
+  blind: false,
   doc,
 ) = {
+
 
   let runningauth = if authors == none {
     none
@@ -63,11 +68,20 @@
         } else if (calc.odd(pg)) [
             #align(right, runningtitle)
           ] else [
-            #align(left, runningauth)
+            #if blind [
+              #align(right, runningtitle)
+            ] else [
+              #align(left, runningauth)
+            ]
           ]
       }
     )
   )
+
+  set page(
+    numbering: none
+    ) if title-page
+
   set par(
     justify: true,
     first-line-indent: 1em,
@@ -98,7 +112,7 @@
 
   show link: this => {
     if type(this.dest) != label {
-      text(this, fill: rgb("#800000"))
+      text(this, fill: rgb(linkcolor.replace("\\#", "#")))
     } else {
       text(this, fill: rgb("#0000CC"))
     }
@@ -126,32 +140,35 @@
     ]
   }
 
+
 // author spacing based on Quarto ieee licenced CC0 1.0 Universal
 // https://github.com/quarto-ext/typst-templates/blob/main/ieee/_extensions/ieee/typst-template.typ
-  for i in range(calc.ceil(authors.len() / 3)) {
-    let end = calc.min((i + 1) * 3, authors.len())
-    let slice = authors.slice(i * 3, end)
-    grid(
-      columns: slice.len() * (1fr,),
-      gutter: 12pt,
-      ..slice.map(author => align(center, {
-            text(weight: "bold", author.name)
-            if author.department != none [
-            \ #author.department
-            ]
-            if author.university != none [
-            \ #author.university
-            ]
-            if author.location != [] [
-            \ #author.location
-            ]
-            if "email" in author [
-            \ #link("mailto:" + to-string(author.email))
-            ]
-      }))
-    )
+  if not blind {
+    for i in range(calc.ceil(authors.len() / 3)) {
+      let end = calc.min((i + 1) * 3, authors.len())
+      let slice = authors.slice(i * 3, end)
+      grid(
+        columns: slice.len() * (1fr,),
+        gutter: 12pt,
+        ..slice.map(author => align(center, {
+              text(weight: "bold", author.name)
+              if author.department != none [
+              \ #author.department
+              ]
+              if author.university != none [
+              \ #author.university
+              ]
+              if author.location != [] [
+              \ #author.location
+              ]
+              if "email" in author [
+              \ #link("mailto:" + to-string(author.email))
+              ]
+        }))
+      )
 
-    v(20pt, weak: true)
+      v(20pt, weak: true)
+    }
   }
 
   if date != none {
@@ -172,6 +189,28 @@
       *Keywords*: #keywords.join(", ", last: ", and ")
     ]]
   }
+
+  if title-page {
+    // set page(numbering: none)
+    // pagebreak()
+    counter(page).update(n => n - 1)
+  }
+  set page(numbering: "1",
+        header: locate(
+      loc => {
+      let pg = counter(page).at(loc).first()
+        if (calc.odd(pg)) [
+          #align(right, runningtitle)
+        ] else [
+          #if blind [
+            #align(right, runningtitle)
+          ] else [
+            #align(left, runningauth)
+          ]
+        ]
+      }
+    )) if title-page
+
 
   if toc {
     let title = if toc_title == none {

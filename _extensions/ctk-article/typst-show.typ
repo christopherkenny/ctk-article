@@ -84,5 +84,14 @@ $endif$
 $if(linestretch)$
   linestretch: $linestretch$,
 $endif$
+$if(linkcolor)$
+  linkcolor: "$linkcolor$",
+$endif$
+$if(title-page)$
+  title-page: $title-page$,
+$endif$
+$if(blind)$
+  blind: $blind$,
+$endif$
   doc,
 )
