@@ -136,4 +136,14 @@ With a surprise sub-sub-section.
 
 # Another appendix section
 
-This comes last.
+Why use Typst?
+
+```{=typst}
+#stack(
+  dir: ltr,
+  spacing: 1fr,
+  ..range(16)
+    .map(i => rotate(24deg * i)[#emoji.face.cowboy])
+)
+```
+Can you make a cowboy do a flip this easily in LaTeX?

@@ -11,8 +11,7 @@ contributes:
       filters:
         - insert-show-appendix.lua
       mainfont:
-        - "Crimson"
-        - "Crimson Text"
+        - "Spectral"
       date-format: long
       linestretch: 1.25
       section-numbering: "1.1"
