@@ -33,7 +33,7 @@ keywords:
   - abstract
   - typst
 thanks: "Thanks to you for downloading this."
-title-page: true
+title-page: false
 blind: false
 bibliography: bibliography.bib
 bibliographystyle: chicago-author-date
@@ -98,7 +98,7 @@ To make a figure with subfigures, try:
 
 ::: {#fig-subfig1 layout-ncol=2 cap-location=bottom}
 
-![fig a]({{< placeholder 100 100 format=svg >}}){#fig-sub1-a cap-location=top}
+![fig a]({{< placeholder 100 100 format=svg >}}){#fig-sub1-a}
 
 ![fig b]({{< placeholder 100 100 format=svg >}}){#fig-sub1-b}
 
@@ -106,16 +106,6 @@ Caption for the subfigures 1.
 
 :::
 
-
-::: {#fig-subfig2 layout-ncol=2}
-
-![fig a]({{< placeholder 100 100 format=svg >}}){#fig-sub2-a cap-location=top}
-
-![fig b]({{< placeholder 100 100 format=svg >}}){#fig-sub2-b}
-
-Caption for the subfigures 2.
-
-:::
 
 # Math works
 
