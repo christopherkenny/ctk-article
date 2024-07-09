@@ -152,6 +152,11 @@
         gutter: 12pt,
         ..slice.map(author => align(center, {
               text(weight: "bold", author.name)
+              if "orcid" in author [
+                #link("https://https://orcid.org/" + author.orcid)[
+                  #box(height: 9pt, image("ORCIDiD.svg"))
+                ]
+              ]
               if author.department != none [
               \ #author.department
               ]

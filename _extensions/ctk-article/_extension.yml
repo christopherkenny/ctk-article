@@ -22,3 +22,5 @@ contributes:
       title-page: false
       blind: false
       section-numbering: "1.1"
+      format-resources:
+        - ORCIDiD.svg

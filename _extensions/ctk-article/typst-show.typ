@@ -26,7 +26,10 @@ $if(it.name.literal)$
     location: [$if(it.city)$$it.city$$if(it.country)$, $endif$$endif$$if(it.country)$$it.country$$endif$],
     $endfor$
     $if(it.email)$
-      email: [$it.email$]
+      email: [$it.email$],
+    $endif$
+    $if(it.orcid)$
+      orcid: "$it.orcid$"
     $endif$
       ),
 $endif$
