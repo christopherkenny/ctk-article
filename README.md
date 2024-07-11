@@ -45,6 +45,13 @@ Some options you can set:
 - `title-page`: Add a separate title page
 - `blind`: Blinds the document, hiding the authors and running author information.
 
+While writing, you can also identify the start of the appendix.
+This resets the counters and updates the "supplements" for figures, so the first appendix figure becomes "Figure A1" instead of continuing the count from the main paper. Simply add the `{.appendix}` tag to the first appendix section to start this switch, like so:
+
+```md
+## Some Title for First Appendix Section {.appendix}
+```
+
 ### Fonts
 
 By default, the `ctk-article` format uses the Spectral font. This can be installed from [Google Fonts](https://fonts.google.com/specimen/Spectral).
