@@ -1,17 +1,49 @@
 # ctk-article Format
 
+The `ctk-article` Quarto template is a general purpose article template, designed for academic papers and preprints.
+
+<!-- pdftools::pdf_convert('template.pdf',pages = 1) -->
+![[template.qmd](template.qmd)](template_1.png)
+
 ## Installing
 
 ```bash
 quarto use template christopherkenny/ctk-article
 ```
-
 This will install the format extension and create an example qmd file
 that you can use as a starting place for your document.
 
-## Using
+## Using `ctk-article`
 
-_TODO_: Describe how to use your format.
+This extension builds your Quarto documents using a Typst backend.
+[Typst](https://github.com/typst/typst) is a newer (~5 years old), but relatively developed approach to typsetting technical documents.
+This is substantially faster than LaTeX but is likely less familiar.
+I recommend using Typst for social sciences, as it gives sufficient control over formatting while being far more intuitive than LaTeX (even as a decade+ regular user of LaTeX).
+This template is what I am using for the job market in 2024.
+
+By the beauty of Quarto, this should not change your experience in any meaningful negative ways.
+You can use LaTeX equations, Quarto callouts, etc.
+But, you may want to save any images as `.png` or `.svg` files as Typst's main drawback (right now) is the lack of `.pdf` image support.
+
+This template has many custom options and optimizes for generic preprints.
+Some options you can set:
+
+- `title`: Your article's title
+- `subtitle`: Your article's subtitle
+- `running-title`: A short title to include in the article's header
+- `author`: Author and affiliation information, following [Quarto's schema](https://quarto.org/docs/journals/authors.html).+
+    - `orcid`: Ids are displayed as a green ORCIDiD logo link
+    - `email`: Emails are listed as links under authors.
+    - Departments, affiliation names, and locations are also listed in a compact fashion.
+- `thanks`: Acknowledgements to add as a footnote to the first page.
+- `keywords`: [An, array, of, keywords, to, list]
+- `margins`: These default to a sensible 1in all-around margin
+- `mainfont`: See the fonts discusison below
+- `fontsize`: Set the default font size. Default is 11pt.
+- `linestretch`: line spacing. In academic fashion, the default is `1` (single-spaced). I recommend `1.25`.
+- `linkcolor`: Add a splash of colors to your link.
+- `title-page`: Add a separate title page
+- `blind`: Blinds the document, hiding the authors and running author information.
 
 ### Fonts
 
