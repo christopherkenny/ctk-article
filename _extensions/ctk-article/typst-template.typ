@@ -84,8 +84,7 @@
 
   set par(
     justify: true,
-    first-line-indent: 1em,
-    leading: linestretch * 0.65em
+    leading: 1.15 * 0.65em
   )
   // Font stuff
   set text(
@@ -231,6 +230,12 @@
     );
     ]
   }
+
+  set par(
+    justify: true,
+    first-line-indent: 1em,
+    leading: linestretch * 0.65em
+  )
 
   if cols == 1 {
     doc
