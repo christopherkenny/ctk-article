@@ -10,6 +10,8 @@ contributes:
         - typst-show.typ
       filters:
         - insert-show-appendix.lua
+      format-resources:
+        - ORCIDiD.svg
       mainfont:
         - "Spectral"
         - "Crimson"
@@ -22,5 +24,6 @@ contributes:
       title-page: false
       blind: false
       section-numbering: "1.1"
-      format-resources:
-        - ORCIDiD.svg
+      execute:
+        echo: false
+        warning: false
