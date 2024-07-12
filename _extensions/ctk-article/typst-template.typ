@@ -78,9 +78,7 @@
     )
   )
 
-  set page(
-    numbering: none
-    ) if title-page
+  set page(numbering: none) if title-page
 
   set par(
     justify: true,
@@ -95,6 +93,8 @@
   )
   show math.equation: set text(font: mathfont)
   show raw: set text(font: codefont)
+
+  show figure.caption: set align(left)
 
   set heading(numbering: sectionnumbering)
 
