@@ -60,36 +60,34 @@
     paper: paper,
     margin: margin,
     numbering: "1",
-    header: locate(
-      loc => {
+    header: locate(loc => {
       let pg = counter(page).at(loc).first()
-        if pg == 1 {
-          return
-        } else if (calc.odd(pg)) [
-            #align(right, runningtitle)
-          ] else [
-            #if blind [
-              #align(right, runningtitle)
-            ] else [
-              #align(left, runningauth)
-            ]
-          ]
-      }
-    )
+      if pg == 1 {
+        return
+      } else if (calc.odd(pg)) [
+        #align(right, runningtitle)
+      ] else [
+        #if blind [
+          #align(right, runningtitle)
+        ] else [
+          #align(left, runningauth)
+        ]
+      ]
+    }),
   )
 
   set page(numbering: none) if title-page
 
   set par(
     justify: true,
-    leading: 1.15 * 0.65em
+    leading: 1.15 * 0.65em,
   )
   // Font stuff
   set text(
     lang: lang,
     region: region,
     font: font,
-    size: fontsize
+    size: fontsize,
   )
   show math.equation: set text(font: mathfont)
   show raw: set text(font: codefont)
@@ -103,7 +101,7 @@
     title: title,
     author: to-string(runningauth),
     date: auto,
-    keywords: keywords.join(", ")
+    keywords: keywords.join(", "),
   )
 
   // show rules
@@ -140,8 +138,8 @@
   }
 
 
-// author spacing based on Quarto ieee licenced CC0 1.0 Universal
-// https://github.com/quarto-ext/typst-templates/blob/main/ieee/_extensions/ieee/typst-template.typ
+  // author spacing based on Quarto ieee licenced CC0 1.0 Universal
+  // https://github.com/quarto-ext/typst-templates/blob/main/ieee/_extensions/ieee/typst-template.typ
   if not blind {
     for i in range(calc.ceil(authors.len() / 3)) {
       let end = calc.min((i + 1) * 3, authors.len())
@@ -149,26 +147,29 @@
       grid(
         columns: slice.len() * (1fr,),
         gutter: 12pt,
-        ..slice.map(author => align(center, {
-              text(weight: "bold", author.name)
-              if "orcid" in author [
-                #link("https://https://orcid.org/" + author.orcid)[
-                  #box(height: 9pt, image("ORCIDiD.svg"))
-                ]
+        ..slice.map(author => align(
+          center,
+          {
+            text(weight: "bold", author.name)
+            if "orcid" in author [
+              #link("https://https://orcid.org/" + author.orcid)[
+                #box(height: 9pt, image("ORCIDiD.svg"))
               ]
-              if author.department != none [
+            ]
+            if author.department != none [
               \ #author.department
-              ]
-              if author.university != none [
+            ]
+            if author.university != none [
               \ #author.university
-              ]
-              if author.location != [] [
+            ]
+            if author.location != [] [
               \ #author.location
-              ]
-              if "email" in author [
+            ]
+            if "email" in author [
               \ #link("mailto:" + to-string(author.email))
-              ]
-        }))
+            ]
+          },
+        ))
       )
 
       v(20pt, weak: true)
@@ -177,21 +178,21 @@
 
   if date != none {
     align(center)[#block(inset: 1em)[
-      #date
-    ]]
+        #date
+      ]]
   }
 
   if abstract != none {
     align(center)[#block(width: 80%)[
-      *Abstract* \
-      #align(left)[#abstract]
-    ]]
+        *Abstract* \
+        #align(left)[#abstract]
+      ]]
   }
 
   if keywords != none {
     align(left)[#block(inset: 1em)[
-      *Keywords*: #keywords.join(", ", last: ", and ")
-    ]]
+        *Keywords*: #keywords.join(", ", last: ", and ")
+      ]]
   }
 
   if title-page {
@@ -199,21 +200,21 @@
     // pagebreak()
     counter(page).update(n => n - 1)
   }
-  set page(numbering: "1",
-        header: locate(
-      loc => {
+  set page(
+    numbering: "1",
+    header: locate(loc => {
       let pg = counter(page).at(loc).first()
-        if (calc.odd(pg)) [
+      if (calc.odd(pg)) [
+        #align(right, runningtitle)
+      ] else [
+        #if blind [
           #align(right, runningtitle)
         ] else [
-          #if blind [
-            #align(right, runningtitle)
-          ] else [
-            #align(left, runningauth)
-          ]
+          #align(left, runningauth)
         ]
-      }
-    )) if title-page
+      ]
+    }),
+  ) if title-page
 
 
   if toc {
@@ -223,18 +224,18 @@
       toc_title
     }
     block(above: 0em, below: 2em)[
-    #outline(
-      title: toc_title,
-      depth: toc_depth,
-      indent: toc_indent
-    );
+      #outline(
+        title: toc_title,
+        depth: toc_depth,
+        indent: toc_indent,
+      )
     ]
   }
 
   set par(
     justify: true,
     first-line-indent: 1em,
-    leading: linestretch * 0.65em
+    leading: linestretch * 0.65em,
   )
 
   if cols == 1 {
@@ -247,13 +248,13 @@
 #let appendix(body) = {
   set heading(
     numbering: "A.1",
-    supplement: [Appendix]
-    )
+    supplement: [Appendix],
+  )
   set figure(
     numbering: (..nums) => {
       "A" + numbering("1", ..nums.pos())
     },
-    supplement: [Appendix Figure]
+    supplement: [Appendix Figure],
   )
   counter(heading).update(0)
   counter(figure.where(kind: "quarto-float-fig")).update(0)
@@ -263,5 +264,5 @@
 }
 #set table(
   inset: 6pt,
-  stroke: none
+  stroke: none,
 )
