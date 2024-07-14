@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "typstyle",
+            "type": "shell",
+            "command": "typstyle -i ${relativeFile}",
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "close": true
+            }
+
+        }
+    ]
+}
