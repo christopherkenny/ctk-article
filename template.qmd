@@ -89,6 +89,7 @@ Donec nibh erat, ornare eleifend dictum vel, fringilla id elit. Mauris id eros a
 
 ```{r}
 #| label: fig-sepal
+#| fig-cap: "According to ChatGPT, the Iris data set is a well-known dataset in the field of machine learning and statistics, often used for benchmarking algorithms. It consists of 150 observations of iris flowers from three species: Iris setosa, Iris versicolor, and Iris virginica. Each observation includes four features: sepal length, sepal width, petal length, and petal width, all measured in centimeters. This dataset is particularly useful for classification tasks as the species are distinct and easily separable based on the given measurements. In R, the dataset can be accessed using the datasets package with the command data(iris)."
 plot(iris$Sepal.Length, iris$Sepal.Width)
 ```
 

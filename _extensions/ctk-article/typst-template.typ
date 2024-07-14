@@ -92,7 +92,19 @@
   show math.equation: set text(font: mathfont)
   show raw: set text(font: codefont)
 
-  show figure.caption: set align(left)
+
+  show figure.caption: it => [
+    #v(-1em)
+    #align(left)[
+      #block(inset: 1em)[
+            #it.supplement
+            #context it.counter.display(it.numbering)
+            #it.separator
+            #it.body
+      ]
+    ]
+  ]
+
 
   set heading(numbering: sectionnumbering)
 
