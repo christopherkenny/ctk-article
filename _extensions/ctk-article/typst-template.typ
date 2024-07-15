@@ -97,10 +97,12 @@
     #v(-1em)
     #align(left)[
       #block(inset: 1em)[
-            #it.supplement
-            #context it.counter.display(it.numbering)
-            #it.separator
-            #it.body
+        #text(weight: "bold")[
+          #it.supplement
+          #context it.counter.display(it.numbering)
+        ]
+        #it.separator
+        #it.body
       ]
     ]
   ]
