@@ -1,3 +1,30 @@
+#let titled-raw-block(body, filename: none) = {
+  if (filename != none) {
+    block(
+      inset: 0em,
+      fill: luma(200),
+      radius: 8pt,
+      outset: 0.75em,
+      width: 100%,
+      spacing: 2em,
+      [
+      #text(font: "DejaVu Sans Mono")[#filename]
+      #block(
+        fill: luma(230),
+        inset: 0em, 
+        above: 1.2em, 
+        outset: 0.75em, 
+        radius: (bottom-left: 8pt, bottom-right: 8pt), 
+        width: 100%,
+        body
+      )
+    ]
+    )
+  } else {
+    body
+  }
+}
+
 // better way to avoid escape characters, rather than doing a regex for \\@
 #let to-string(content) = {
   if content.has("text") {

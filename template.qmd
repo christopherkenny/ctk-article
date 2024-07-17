@@ -38,6 +38,8 @@ title-page: false
 blind: false
 bibliography: bibliography.bib
 bibliographystyle: chicago-author-date
+functions:
+  - "titled-raw-block"
 ---
 
 # Introduction
@@ -121,6 +123,25 @@ Even better, you can use a Typst block to use the Typst syntax, allowing you to 
 $ A = pi r^2 $
 ```
 
+## Using `typst-function` extension
+
+This template embeds the [`typst-function`](https://github.com/christopherkenny/typst-function) extension, which lets you use Quarto syntax to call Typst functions.
+
+
+## Including Raw Typst
+
+This template supports including raw Typst blocks and provides a `title-raw-block` function to make it easier to include raw Typst blocks with filenames (or other titles).
+
+```{=typst}
+#titled-raw-block(filename: "test.R", 
+  raw(lang: "R", "test <- function() {
+  x <- rnorm(100, 3, 1)
+  mean(x) - 3
+}
+")
+)
+```
+
 ### References
 
 Reference are automatically placed at the end of the document.
@@ -182,3 +203,6 @@ Why use Typst?
   ]
 ]]
 ```
+
+
+
