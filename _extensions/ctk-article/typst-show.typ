@@ -72,7 +72,7 @@ $endif$
 $if(codefont)$
   codefont: ($for(codefont)$"$codefont$",$endfor$),
 $endif$
-sectionnumbering: $if(section-numbering)$"$section-numbering$"$else$none$endif$,
+  sectionnumbering: $if(section-numbering)$"$section-numbering$"$else$none$endif$,
 $if(toc)$
   toc: $toc$,
 $endif$
