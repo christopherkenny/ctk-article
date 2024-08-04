@@ -10,6 +10,7 @@ contributes:
         - typst-show.typ
       filters:
         - insert-show-appendix.lua
+        - typst-function
       format-resources:
         - ORCIDiD.svg
       mainfont:

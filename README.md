@@ -2,7 +2,7 @@
 
 The `ctk-article` Quarto template is a general purpose article template, designed for academic papers and preprints.
 
-<!-- pdftools::pdf_convert('template.pdf',pages = 1) -->
+<!-- pdftools::pdf_convert('template.pdf', pages = 1) -->
 ![[template.qmd](template.qmd)](template_1.png)
 
 ## Installing
