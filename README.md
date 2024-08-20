@@ -44,6 +44,7 @@ Some options you can set:
 - `linkcolor`: Add a splash of colors to your link.
 - `title-page`: Add a separate title page
 - `blind`: Blinds the document, hiding the authors and running author information.
+- `biblio-title`: Title for the reference section
 
 While writing, you can also identify the start of the appendix.
 This resets the counters and updates the "supplements" for figures, so the first appendix figure becomes "Figure A1" instead of continuing the count from the main paper. Simply add the `{.appendix}` tag to the first appendix section to start this switch, like so:
