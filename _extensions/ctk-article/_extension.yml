@@ -1,6 +1,6 @@
 title: ctk-article
 author: Christopher Kenny
-version: 1.0.0
+version: 1.0.1
 quarto-required: ">=1.5.0"
 contributes:
   formats:
@@ -8,6 +8,7 @@ contributes:
       template-partials:
         - typst-template.typ
         - typst-show.typ
+        - biblio.typ
       filters:
         - insert-show-appendix.lua
         - typst-function
@@ -24,7 +25,7 @@ contributes:
       linkcolor: "#800000"
       title-page: false
       blind: false
-      section-numbering: "1.1"
+      section-numbering: "1.1."
       execute:
         echo: false
         warning: false
