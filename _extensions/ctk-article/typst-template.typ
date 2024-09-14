@@ -11,10 +11,10 @@
       #text(font: "DejaVu Sans Mono")[#filename]
       #block(
         fill: luma(230),
-        inset: 0em, 
-        above: 1.2em, 
-        outset: 0.75em, 
-        radius: (bottom-left: 8pt, bottom-right: 8pt), 
+        inset: 0em,
+        above: 1.2em,
+        outset: 0.75em,
+        radius: (bottom-left: 8pt, bottom-right: 8pt),
         width: 100%,
         body
       )
@@ -159,6 +159,8 @@
   // show rules
   // show figure.where(kind: "quarto-float-fig"): set figure.caption(position: top)
 
+  set footnote.entry(indent: 0em, gap: 0.75em)
+
   show link: this => {
     if type(this.dest) != label {
       text(this, fill: rgb(linkcolor.replace("\\#", "#")))
@@ -171,7 +173,12 @@
     text(this, fill: rgb("#640872"))
   }
 
-  set enum(indent: 1em)
+  show cite.where(form: "prose"): this => {
+    text(this, fill: rgb("#640872"))
+  }
+
+  set list(indent: 2em)
+  set enum(indent: 2em)
 
   // start article content
   if title != none {
@@ -247,7 +254,7 @@
 
   if keywords != none {
     align(left)[#block(inset: 1em)[
-      *Keywords*: #keywords.join(", ", last: ", and ")
+      *Keywords*: #keywords.join(" • ")
     ]]
   }
 
