@@ -84,3 +84,7 @@ The author running header is taken from the `author` metadata field. They are fo
 - Three authors: `Last-Name-1, Last-Name-2, and Last-Name-3`
 - Four authors: `Last-Name-1, Last-Name-2, Last-Name-3, and Last-Name-4`
 - Five or more authors: `Last-Name-1 et al.`
+
+## License
+
+This template is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
