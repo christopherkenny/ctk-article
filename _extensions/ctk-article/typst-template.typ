@@ -107,7 +107,7 @@
     paper: paper,
     margin: margin,
     numbering: "1",
-    header: locate(
+    header: locate( // TODO: must be updated for typst >= 0.13
       loc => {
       let pg = counter(page).at(loc).first()
         if pg == 1 {
