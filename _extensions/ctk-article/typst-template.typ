@@ -107,9 +107,8 @@
     paper: paper,
     margin: margin,
     numbering: "1",
-    header: locate( // TODO: must be updated for typst >= 0.13
-      loc => {
-      let pg = counter(page).at(loc).first()
+    header: context {
+      let pg = counter(page).at(here()).first()
         if pg == 1 {
           return
         } else if (calc.odd(pg)) [
@@ -129,7 +128,6 @@
           line(length: 100%)
       }
     )
-  )
 
   set page(
     numbering: none
@@ -284,9 +282,8 @@
     counter(page).update(n => n - 1)
   }
   set page(numbering: "1",
-        header: locate(
-      loc => {
-      let pg = counter(page).at(loc).first()
+        header: context {
+      let pg = counter(page).at(here()).first()
         if (calc.odd(pg)) [
           #align(right, runningtitle)
         ] else [
@@ -297,7 +294,7 @@
           ]
         ]
       }
-    )) if title-page
+    ) if title-page
 
 
   if toc {
