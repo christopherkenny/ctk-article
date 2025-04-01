@@ -53,7 +53,7 @@ It is much faster and simpler to edit using Typst, but it is not as fully develo
 
 Most things can be done directly using Quarto.
 Quarto simplifies academic writing by allowing you to focus on the content, rather than the style.
-We can cite like normal [@king1994designing].
+We can cite like normal [@king1994designing; @ho2007matching].
 And we can cross reference @sec-more.
 
 For an introduction to Quarto, see <https://quarto.org/docs/get-started/>.
