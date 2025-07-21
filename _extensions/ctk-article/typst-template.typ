@@ -230,7 +230,7 @@
               text(weight: "bold", author.name)
               if "orcid" in author [
                 #link("https://orcid.org/" + author.orcid)[
-                  #box(height: 9pt, image.decode(orcid_svg))
+                  #box(height: 9pt, image(bytes(orcid_svg)))
                 ]
               ]
               if author.department != none [
