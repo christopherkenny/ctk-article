@@ -29,7 +29,10 @@ $if(it.name.literal)$
       email: [$it.email$],
     $endif$
     $if(it.orcid)$
-      orcid: "$it.orcid$"
+      orcid: "$it.orcid$",
+    $endif$
+    $if(it.attributes.equal-contributor)$
+    equal-contributor: $it.attributes.equal-contributor$,
     $endif$
       ),
 $endif$
@@ -95,6 +98,9 @@ $if(title-page)$
 $endif$
 $if(blind)$
   blind: $blind$,
+$endif$
+$if(author-note)$
+  author-note: "$author-note$",
 $endif$
   doc,
 )

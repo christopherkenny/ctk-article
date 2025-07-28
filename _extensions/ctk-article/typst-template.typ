@@ -89,6 +89,7 @@
   linkcolor: "#800000",
   title-page: false,
   blind: false,
+  author-note: none,
   doc,
 ) = {
 
@@ -155,9 +156,8 @@
       #block(inset: 1em)[
         #text(weight: "bold")[
           #it.supplement
-          #context it.counter.display(it.numbering)
+          #context it.counter.display(it.numbering)#it.separator
         ]
-        #it.separator
         #it.body
       ]
     ]
@@ -201,8 +201,9 @@
   // start article content
   if title != none {
     align(center)[
-      #block(inset: 2em)[
-        #text(weight: "bold", size: 30pt)[
+      #block(inset: 1em)[
+        #set par(justify: false)
+        #text(weight: "bold", size: 24pt, hyphenate: false)[
           #title #if thanks != none {
             footnote(thanks, numbering: "*")
             counter(footnote).update(n => n - 1)
@@ -228,12 +229,17 @@
         gutter: 12pt,
         ..slice.map(author => align(center, {
               text(weight: "bold", author.name)
+              if "equal-contributor" in author {
+                 super(numbering("*", 2))
+              }
               if "orcid" in author [
                 #link("https://orcid.org/" + author.orcid)[
                   #box(height: 9pt, image(bytes(orcid_svg)))
                 ]
               ]
+              set text(size: 0.8em)
               if author.department != none [
+              #show ",": linebreak()
               \ #author.department
               ]
               if author.university != none [
@@ -252,8 +258,15 @@
     }
   }
 
+  if author-note != none {
+    counter(footnote).update(n => 2)
+    footnote(author-note, numbering: "*")
+    counter(footnote).update(n => 0)
+  }
+
   if date != none {
-    align(center)[#block(inset: 1em)[
+    v(-1em)
+    align(center)[#block(inset: 0em)[
       #date
     ]]
   }
