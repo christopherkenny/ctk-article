@@ -171,8 +171,10 @@
     title: title,
     author: to-string(runningauth),
     date: auto,
-    keywords: keywords.join(", ")
   )
+  set document(
+    keywords: keywords.join(", ")
+  ) if keywords != none
 
   // show rules
   // show figure.where(kind: "quarto-float-fig"): set figure.caption(position: top)
