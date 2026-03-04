@@ -147,8 +147,9 @@ This template supports including raw Typst blocks and provides a `title-raw-bloc
 ### References
 
 Reference are automatically placed at the end of the document.
-The magic refs div does not current working in typst when `citeproc: false`, see [this issue](https://github.com/quarto-dev/quarto-cli/issues/8710).
-To move the refs, set `citeproc: true` in the YAML.
+The magic refs div does not work by default in typst when `citeproc: false`, see [this issue](https://github.com/quarto-dev/quarto-cli/issues/8710).
+This format, as of v1.1.0, bundles a filter [`typst-refs`](https://github.com/christopherkenny/typst-refs) to handle this.
+Alternatively, if you are okay using a different citation processor, set `citeproc: true` in the YAML.
 
 ::: {#refs}
 :::
