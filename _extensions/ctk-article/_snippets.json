@@ -1,0 +1,29 @@
+{
+  "ctk-article format": {
+    "prefix": "format",
+    "body": [
+      "format:",
+      "  ctk-article-typst:",
+      "    title-page: ${1:false}",
+      "    blind: ${2:false}",
+      "    linestretch: ${3:1.25}"
+    ],
+    "description": "Configure the ctk-article Typst format."
+  },
+  "Appendix heading": {
+    "prefix": "appendix",
+    "body": [
+      "## ${1:Appendix title} {.appendix}",
+      "",
+      "$0"
+    ],
+    "description": "Insert an appendix heading that triggers appendix mode."
+  },
+  "Typst function span": {
+    "prefix": "function",
+    "body": [
+      "[${1:content}]{.${2:text} arguments=\"${3:fill:blue}\"}"
+    ],
+    "description": "Wrap inline content with a typst-function class and arguments."
+  }
+}
