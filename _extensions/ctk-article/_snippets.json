@@ -1,6 +1,6 @@
 {
   "ctk-article format": {
-    "prefix": "ctk-article-format",
+    "prefix": "format",
     "body": [
       "format:",
       "  ctk-article-typst:",
@@ -11,7 +11,7 @@
     "description": "Configure the ctk-article Typst format."
   },
   "Appendix heading": {
-    "prefix": "ctk-appendix",
+    "prefix": "appendix",
     "body": [
       "## ${1:Appendix title} {.appendix}",
       "",
@@ -20,7 +20,7 @@
     "description": "Insert an appendix heading that triggers appendix mode."
   },
   "Typst function span": {
-    "prefix": "ctk-typst-function",
+    "prefix": "function",
     "body": [
       "[${1:content}]{.${2:text} arguments=\"${3:fill:blue}\"}"
     ],
