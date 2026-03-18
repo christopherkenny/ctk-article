@@ -1,0 +1,56 @@
+$schema: https://m.canouil.dev/quarto-wizard/assets/schema/v1/extension-schema.json
+
+formats:
+  ctk-article-typst:
+    title-page:
+      type: boolean
+      default: false
+      description: Render a standalone title page.
+    blind:
+      type: boolean
+      default: false
+      description: Hide author details for blinded review.
+    mainfont:
+      type: array
+      items:
+        type: string
+      description: Preferred font fallback list for body text.
+    codefont:
+      type: string
+      description: Monospace font for code blocks.
+    date-format:
+      type: string
+      description: Date formatting style.
+    linestretch:
+      type: number
+      description: Line spacing multiplier.
+    linkcolor:
+      type: string
+      description: Link colour used in the PDF.
+      completion:
+        type: color
+    bibliographystyle:
+      type: string
+      description: Citation style used by Typst.
+    biblio-title:
+      type: string
+      description: Heading for the bibliography section.
+    section-numbering:
+      type: string
+      description: Section numbering style.
+
+attributes:
+  _any:
+    arguments:
+      type: string
+      description: Arguments passed to a Typst function wrapper class.
+    spread:
+      type: boolean
+      description: Spread function arguments over nested calls.
+    label:
+      type: string
+      description: Label inserted after the generated Typst block.
+
+classes:
+  appendix:
+    description: Marks the first appendix section to switch Typst appendix rendering.
