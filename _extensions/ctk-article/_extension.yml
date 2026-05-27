@@ -30,3 +30,4 @@ contributes:
       execute:
         echo: false
         warning: false
+      syntax-highlighting: idiomatic
