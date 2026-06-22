@@ -28,6 +28,9 @@ $if(it.name.literal)$
     $if(it.email)$
       email: [$it.email$],
     $endif$
+    $if(it.url)$
+      url: "$it.url$",
+    $endif$
     $if(it.orcid)$
       orcid: "$it.orcid$",
     $endif$

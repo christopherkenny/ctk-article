@@ -230,7 +230,11 @@
         columns: slice.len() * (1fr,),
         gutter: 12pt,
         ..slice.map(author => align(center, {
-              text(weight: "bold", author.name)
+              if "url" in author {
+                link(author.url)[#text(weight: "bold", author.name)]
+              } else {
+                text(weight: "bold", author.name)
+              }
               if "equal-contributor" in author {
                  super(numbering("*", 2))
               }
